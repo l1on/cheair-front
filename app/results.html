@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>cheair</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container">
+      <nav class="navbar navbar-default">
+        
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/index.html">Cheair</a>
+            <p class="navbar-text">Utlra cheap air tickets for US-China flights</p>
+          </div>
+      </nav>
+  
+      <!--<p>
+        <h5>price: $318, duration: 7h35m</h5>
+        <h6>origin: LAX, destination: PVG</h6>
+        <h6>departure time in origin: Oct 13th, 2016 at 17:05; arrival time in destination: Oct 13th, 2016 at 3:25</h6>
+        <h6>departure time in destination: Oct 23th, 2016 at 6:55; arrival time in origin: Oct 24th, 2016 at 14:00</h6>
+      </p>-->
+
+
+      <div class="row">
+        <div class="col-md-10">
+          <canvas id="myChart"></canvas>
+          <div class="row text-center flight-selection">
+            <div class="col-md-4 ">
+              <p>
+                <abbr title="" class="initialism" data-container="body" data-toggle="popover" data-placement="left" data-content="" data-trigger="hover">Flight Info</abbr>
+              </p>
+              <button type="button" class="btn btn-default">Choose</button>
+            </div>
+            <div class="col-md-4 ">
+              <p>
+                <abbr title="" class="initialism" data-container="body" data-toggle="popover" data-placement="left" data-content="" data-trigger="hover">Flight Info</abbr>
+              </p>
+              <button class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="" data-trigger="hover">Choose</button>
+            </div>
+            <div class="col-md-4 ">
+              <p>
+                <abbr title="" class="initialism" data-container="body" data-toggle="popover" data-placement="left" data-content="" data-trigger="hover">Flight Info</abbr>
+              </p>
+              <button class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="" data-trigger="hover">Choose</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios1" value="price">
+              <span class="label label-default">rank by price</span>
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios2" value="duration">
+              <span class="label label-default">rank by duration</span>
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios3" value="price-duration" checked>
+              <span class="label label-primary">rank by price + duration</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <form class="form-inline hidden" style="margin-top: 50px;">
+        <h4>Passenger 1 Info:</h4>
+        <p class="row">
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="first name">
+          </div>
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="text" class="form-control" id="exampleInputPassword3" placeholder="middle name">
+          </div>
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="text" class="form-control" id="exampleInputPassword3" placeholder="last name">
+          </div>
+        </p>
+        <p class="row">
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="exampleInputEmail3">Email address</label>
+            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="date of birth" onfocus="(this.type='date')">
+          </div>
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="text" class="form-control" id="exampleInputPassword3" placeholder="passport">
+          </div>
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="exampleInputPassword3">Password</label>
+            <input type="email" class="form-control" id="exampleInputPassword3" placeholder="email">
+          </div>
+        </p>
+        <p class="row">
+          <div class="form-group col-md-offset-4 col-md-4">
+            <button type="submit" class="btn btn-lg btn-default">Pay</button>
+          </div>
+        </p> 
+      </form>
+      
+
+
+
+    </div>
+
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            This cheaper price is found on a Chinese vendor site. Because of possible language barrier and currency inconvenience, would you like to let us help you with the purchase?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-default">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap/js/affix.js"></script>
+    <script src="/bower_components/bootstrap/js/alert.js"></script>
+    <script src="/bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="/bower_components/bootstrap/js/tooltip.js"></script>
+    <script src="/bower_components/bootstrap/js/modal.js"></script>
+    <script src="/bower_components/bootstrap/js/transition.js"></script>
+    <script src="/bower_components/bootstrap/js/button.js"></script>
+    <script src="/bower_components/bootstrap/js/popover.js"></script>
+    <script src="/bower_components/bootstrap/js/carousel.js"></script>
+    <script src="/bower_components/bootstrap/js/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap/js/collapse.js"></script>
+    <script src="/bower_components/bootstrap/js/tab.js"></script>
+    <!-- endbuild -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/results.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
